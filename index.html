@@ -1150,6 +1150,36 @@ async function loadLocalTxtBooks() {
   }
 }
 
+async function extractLocalCover(item) {
+  const filename = item.file.split('/').pop();
+  const cacheKey = 'moyue_cover_' + filename;
+  const cached = localStorage.getItem(cacheKey);
+  if (cached) return cached;
+  if (item.ext !== 'epub') return null;
+  try {
+    const resp = await fetch(item.file);
+    if (!resp.ok) return null;
+    const ab = await resp.arrayBuffer();
+    const book = ePub(ab);
+    await book.ready;
+    const coverUrl = await book.coverUrl();
+    book.destroy();
+    if (coverUrl) {
+      // blob URL 会在 destroy 后失效，转成 data URL 再缓存
+      const imgResp = await fetch(coverUrl);
+      const blob = await imgResp.blob();
+      const dataUrl = await new Promise(resolve => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.readAsDataURL(blob);
+      });
+      localStorage.setItem(cacheKey, dataUrl);
+      return dataUrl;
+    }
+  } catch (e) { console.warn('封面提取失败:', filename, e); }
+  return null;
+}
+
 function renderLocalBooks() {
   const grid = document.getElementById('local-grid');
   const section = document.getElementById('local-books');
@@ -1163,8 +1193,33 @@ function renderLocalBooks() {
     const ext = item.ext.toUpperCase();
     const color = colors[i % colors.length];
     const cleanTitle = (item.title || '').replace(/\.(txt|md|markdown|log|csv|json|xml|html|htm|rtf|fb2|epub|pdf)$/i, '').replace(/\.[^.]+$/, '');
-    return `<div class="book-card" onclick="openLocalBook('${filename}')"><div class="book-cover"><div class="placeholder" style="background:linear-gradient(135deg,${color},${color}dd)">${ext}</div><span class="local-book-badge"><i class="fas fa-folder"></i></span></div><div class="book-info"><div class="title" title="${cleanTitle}">${cleanTitle}</div><div class="meta"><span>${item.author || '本地'}</span><span>${progress}%</span></div><div class="book-progress-bar" style="width:${progress}%"></div></div></div>`;
+    const cacheKey = 'moyue_cover_' + filename;
+    const cachedCover = localStorage.getItem(cacheKey);
+    const coverHtml = cachedCover
+      ? `<img src="${cachedCover}" alt="">`
+      : `<div class="placeholder" style="background:linear-gradient(135deg,${color},${color}dd)">${ext}</div>`;
+    return `<div class="book-card" onclick="openLocalBook('${filename}')"><div class="book-cover">${coverHtml}<span class="local-book-badge"><i class="fas fa-folder"></i></span></div><div class="book-info"><div class="title" title="${cleanTitle}">${cleanTitle}</div><div class="meta"><span>${item.author || '本地'}</span><span>${progress}%</span></div><div class="book-progress-bar" style="width:${progress}%"></div></div></div>`;
   }).join('');
+  // 异步提取未缓存的封面
+  state.localBooks.forEach(async (item, i) => {
+    const filename = item.file.split('/').pop();
+    const cacheKey = 'moyue_cover_' + filename;
+    if (localStorage.getItem(cacheKey)) return;
+    const coverUrl = await extractLocalCover(item);
+    if (coverUrl) {
+      const cards = grid.querySelectorAll('.book-card');
+      if (cards[i]) {
+        const coverEl = cards[i].querySelector('.book-cover');
+        const placeholder = coverEl.querySelector('.placeholder');
+        if (placeholder) {
+          const img = document.createElement('img');
+          img.src = coverUrl;
+          img.alt = '';
+          placeholder.replaceWith(img);
+        }
+      }
+    }
+  });
 }
 
 async function openLocalBook(filename) {
