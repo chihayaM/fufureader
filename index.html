@@ -12,40 +12,40 @@
 <style>
 /* ===== CSS Variables & Themes ===== */
 :root {
-  --bg: #fafa;
+  --bg: #fafafa;
   --bg-secondary: #fff;
-  --text: #33;
+  --text: #333;
   --text-secondary: #666;
-  --border: #e0e0;
+  --border: #e0e0e0;
   --accent: #2196F3;
   --accent-light: #e3f2fd;
-  --shadow: rgba(0,0,0.08);
+  --shadow: rgba(0,0,0,0.08);
   --sidebar-bg: #fff;
   --hover: #f5f5f5;
-  --toolbar-bg: rgba(255,255,0.95);
+  --toolbar-bg: rgba(255,255,255,0.95);
   --card-bg: #fff;
   --card-hover: #f0f7ff;
-  --overlay: rgba(0,0,0.4);
-  --scrollbar: #ccc;
-  --scrollbar-hover: #aaa;
+  --overlay: rgba(0,0,0,0.4);
+  --scrollbar: #cccccc;
+  --scrollbar-hover: #aaaaaa;
 }
 [data-theme="dark"] {
   --bg: #1a1a2e;
   --bg-secondary: #16213e;
-  --text: #e0e0;
-  --text-secondary: #a0a0;
+  --text: #e0e0e0;
+  --text-secondary: #a0a0a0;
   --border: #2a2a4a;
   --accent: #64b5f6;
   --accent-light: #1e3a5f;
-  --shadow: rgba(0,0,0.3);
+  --shadow: rgba(0,0,0,0.3);
   --sidebar-bg: #16213e;
   --hover: #1e2d4a;
-  --toolbar-bg: rgba(26,46,0.95);
+  --toolbar-bg: rgba(26,26,46,0.95);
   --card-bg: #16213e;
   --card-hover: #1e3a5f;
-  --overlay: rgba(0,0,0.6);
-  --scrollbar: #44;
-  --scrollbar-hover: #66;
+  --overlay: rgba(0,0,0,0.6);
+  --scrollbar: #444444;
+  --scrollbar-hover: #666666;
 }
 [data-theme="sepia"] {
   --bg: #f4ecd8;
@@ -76,7 +76,7 @@
   --shadow: rgba(46,74,50,0.1);
   --sidebar-bg: #f1f8f2;
   --hover: #d7eed8;
-  --toolbar-bg: rgba(232,245,23,0.95);
+  --toolbar-bg: rgba(232,245,232,0.95);
   --card-bg: #f1f8f2;
   --card-hover: #d7eed8;
   --overlay: rgba(46,74,50,0.3);
@@ -115,7 +115,7 @@ input, button, select { font-family: inherit; }
 }
 .shelf-header h1 {
   font-size: 28px;
-  font-weight: 70;
+  font-weight: 700;
   background: linear-gradient(135deg, var(--accent), #e91e63);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -199,7 +199,7 @@ input, button, select { font-family: inherit; }
   align-items: center;
   justify-content: center;
   font-size: 36px;
-  font-weight: 70;
+  font-weight: 700;
   color: #fff;
 }
 .book-info { padding: 10px 12px; }
@@ -233,7 +233,7 @@ input, button, select { font-family: inherit; }
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: rgba(0,0,0.6);
+  background: rgba(0,0,0,0.6);
   color: #fff;
   border: none;
   cursor: pointer;
@@ -494,8 +494,8 @@ input, button, select { font-family: inherit; }
   border: none;
 }
 #pdf-view {
-  width: 10%;
-  height: 10%;
+  width: 100%;
+  height: 100%;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -508,8 +508,8 @@ input, button, select { font-family: inherit; }
   box-shadow: 0 2px 12px var(--shadow);
 }
 #text-view {
-  width: 10%;
-  height: 10%;
+  width: 100%;
+  height: 100%;
   overflow-y: auto;
   padding: 40px;
   max-width: 800px;
@@ -531,9 +531,11 @@ input, button, select { font-family: inherit; }
 #text-view.markdown pre { background: var(--hover); padding: 16px; border-radius: 8px; overflow-x: auto; margin-bottom: 1em; }
 #text-view.markdown blockquote { border-left: 3px solid var(--accent); padding-left: 16px; color: var(--text-secondary); margin-bottom: 1em; }
 #text-view.markdown img { max-width: 100%; border-radius: 8px; }
-#text-view.markdown table { border-collapse: collapse; width: 10%; margin-bottom: 1em; }
+#text-view.markdown table { border-collapse: collapse; width: 100%; margin-bottom: 1em; }
 #text-view.markdown th, #text-view.markdown td { border: 1px solid var(--border); padding: 8px 12px; text-align: left; }
 #text-view.markdown th { background: var(--hover); }
+#text-view.markdown p { margin-bottom: 1em; }
+#text-view.markdown li { margin-bottom: 0.5em; }
 
 /* Page Navigation Arows */
 .nav-arrow {
@@ -567,7 +569,7 @@ input, button, select { font-family: inherit; }
   flex-shrink: 0;
 }
 .progress-fill {
-  height: 10%;
+  height: 100%;
   background: var(--accent);
   transition: width 0.3s;
   width: 0;
@@ -713,7 +715,7 @@ kbd {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 10%;
+  height: 100%;
   color: var(--text-secondary);
   gap: 12px;
 }
@@ -754,7 +756,7 @@ kbd {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  border: 2px solid rgba(0,0,0.1);
+  border: 2px solid rgba(0,0,0,0.1);
   cursor: pointer;
   transition: transform 0.2s;
 }
@@ -916,7 +918,7 @@ kbd {
         <span class="setting-label">字号</span>
         <div class="setting-control">
           <button onclick="changeFontSize(-1)"><i class="fas fa-minus"></i></button>
-          <span class="value" id="font-size-val">16px</span>
+          <input type="number" id="font-size-val" value="16" min="8" max="72" step="1" style="width:50px;text-align:center;border:1px solid var(--border);border-radius:4px;background:var(--bg);color:var(--text);padding:4px" onchange="applyFontSizeInput(this.value)"> px
           <button onclick="changeFontSize(1)"><i class="fas fa-plus"></i></button>
         </div>
       </div>
@@ -924,7 +926,7 @@ kbd {
         <span class="setting-label">行高</span>
         <div class="setting-control">
           <button onclick="changeLineHeight(-0.1)"><i class="fas fa-minus"></i></button>
-          <span class="value" id="line-height-val">1.8</span>
+          <input type="number" id="line-height-val" value="1.8" min="1" max="5" step="0.1" style="width:50px;text-align:center;border:1px solid var(--border);border-radius:4px;background:var(--bg);color:var(--text);padding:4px" onchange="applyLineHeightInput(this.value)">
           <button onclick="changeLineHeight(0.1)"><i class="fas fa-plus"></i></button>
         </div>
       </div>
@@ -932,7 +934,7 @@ kbd {
         <span class="setting-label">字间距</span>
         <div class="setting-control">
           <button onclick="changeLetterSpacing(-0.5)"><i class="fas fa-minus"></i></button>
-          <span class="value" id="letter-spacing-val">0px</span>
+          <input type="number" id="letter-spacing-val" value="0" min="-2" max="10" step="0.5" style="width:50px;text-align:center;border:1px solid var(--border);border-radius:4px;background:var(--bg);color:var(--text);padding:4px" onchange="applyLetterSpacingInput(this.value)"> px
           <button onclick="changeLetterSpacing(0.5)"><i class="fas fa-plus"></i></button>
         </div>
       </div>
@@ -947,11 +949,35 @@ kbd {
         </select>
       </div>
       <div class="setting-row">
-        <span class="setting-label">页面间距</span>
+        <span class="setting-label">上下边距</span>
         <div class="setting-control">
-          <button onclick="changePageGap(-5)"><i class="fas fa-minus"></i></button>
-          <span class="value" id="page-gap-val">20px</span>
-          <button onclick="changePageGap(5)"><i class="fas fa-plus"></i></button>
+          <button onclick="changePageGapV(-5)"><i class="fas fa-minus"></i></button>
+          <input type="number" id="page-gap-v-val" value="20" min="0" step="5" style="width:50px;text-align:center;border:1px solid var(--border);border-radius:4px;background:var(--bg);color:var(--text);padding:4px" onchange="applyPageGapVInput(this.value)"> px
+          <button onclick="changePageGapV(5)"><i class="fas fa-plus"></i></button>
+        </div>
+      </div>
+      <div class="setting-row">
+        <span class="setting-label">左右边距</span>
+        <div class="setting-control">
+          <button onclick="changePageGapH(-5)"><i class="fas fa-minus"></i></button>
+          <input type="number" id="page-gap-h-val" value="40" min="0" step="5" style="width:50px;text-align:center;border:1px solid var(--border);border-radius:4px;background:var(--bg);color:var(--text);padding:4px" onchange="applyPageGapHInput(this.value)"> px
+          <button onclick="changePageGapH(5)"><i class="fas fa-plus"></i></button>
+        </div>
+      </div>
+      <div class="setting-row">
+        <span class="setting-label">段落间距</span>
+        <div class="setting-control">
+          <button onclick="changeParagraphSpacing(-0.5)"><i class="fas fa-minus"></i></button>
+          <input type="number" id="para-spacing-val" value="1" min="0" max="20" step="0.5" style="width:50px;text-align:center;border:1px solid var(--border);border-radius:4px;background:var(--bg);color:var(--text);padding:4px" onchange="applyParagraphSpacingInput(this.value)"> em
+          <button onclick="changeParagraphSpacing(0.5)"><i class="fas fa-plus"></i></button>
+        </div>
+      </div>
+      <div class="setting-row">
+        <span class="setting-label">首行缩进</span>
+        <div class="setting-control">
+          <button onclick="changeFirstLineIndent(-0.5)"><i class="fas fa-minus"></i></button>
+          <input type="number" id="indent-val" value="2" min="0" max="20" step="0.5" style="width:50px;text-align:center;border:1px solid var(--border);border-radius:4px;background:var(--bg);color:var(--text);padding:4px" onchange="applyIndentInput(this.value)"> em
+          <button onclick="changeFirstLineIndent(0.5)"><i class="fas fa-plus"></i></button>
         </div>
       </div>
     </div>
@@ -963,7 +989,7 @@ kbd {
     <button style="background:#4caf50" onclick="addHighlight('green')"></button>
     <button style="background:#2196f3" onclick="addHighlight('blue')"></button>
     <button style="background:#e91e63" onclick="addHighlight('pink')"></button>
-    <button style="background:transparent;border:1px solid #99" onclick="removeHighlight()"><i class="fas fa-times" style="font-size:10px;color:#999"></i></button>
+    <button style="background:transparent;border:1px solid #999" onclick="removeHighlight()"><i class="fas fa-times" style="font-size:10px;color:#999"></i></button>
   </div>
 </div>
 
@@ -985,7 +1011,10 @@ const state = {
   lineHeight: parseFloat(localStorage.getItem('moyue_lineHeight') || '1.8'),
   letterSpacing: parseFloat(localStorage.getItem('moyue_letterSpacing') || '0'),
   fontFamily: localStorage.getItem('moyue_fontFamily') || 'system-ui, sans-serif',
-  pageGap: parseInt(localStorage.getItem('moyue_pageGap') || '20'),
+  pageGapV: parseInt(localStorage.getItem('moyue_pageGapV') || '20'),
+  pageGapH: parseInt(localStorage.getItem('moyue_pageGapH') || '40'),
+  paragraphSpacing: parseFloat(localStorage.getItem('moyue_paragraphSpacing') || '1'),
+  firstLineIndent: parseFloat(localStorage.getItem('moyue_firstLineIndent') || '2'),
   theme: localStorage.getItem('moyue_theme') || 'light',
   sidebarTab: 'toc',
   searchTimer: null,
@@ -1001,9 +1030,10 @@ const DB_NAME = 'moyue_db';
 const DB_STORE = 'bookData';
 function openDB() {
   return new Promise((resolve, reject) => {
-    const req = indexedDB.open(DB_NAME, 1);
-    req.onupgradeneded = () => {
-      if (!req.result.objectStoreNames.contains(DB_STORE)) req.result.createObjectStore(DB_STORE);
+    const req = indexedDB.open(DB_NAME, 2);
+    req.onupgradeneeded = (e) => {
+      const db = e.target.result;
+      if (!db.objectStoreNames.contains(DB_STORE)) db.createObjectStore(DB_STORE);
     };
     req.onsuccess = () => resolve(req.result);
     req.onerror = () => reject(req.error);
@@ -1124,15 +1154,15 @@ function renderLocalBooks() {
   const section = document.getElementById('local-books');
   if (state.localBooks.length === 0) { grid.innerHTML = ''; return; }
   section.style.display = 'block';
-  const colors = ['#009688','#4caf50','#8bc34a','#cddc39','#ff9800','#ff572','#795548','#607d8b'];
+  const colors = ['#009688','#4caf50','#8bc34a','#cddc39','#ff9800','#ff5722','#795548','#607d8b'];
   grid.innerHTML = state.localBooks.map((item, i) => {
     const filename = item.file.split('/').pop();
     const prog = getLocalProgress(filename);
-    const progress = Math.round((prog.progress || 0) * 10);
+    const progress = Math.round((prog.progress || 0) * 100);
     const ext = item.ext.toUpperCase();
     const color = colors[i % colors.length];
     const cleanTitle = (item.title || '').replace(/\.(txt|md|markdown|log|csv|json|xml|html|htm|rtf|fb2|epub|pdf)$/i, '').replace(/\.[^.]+$/, '');
-    return `<div class="book-card" onclick="openLocalBook('${filename}')"><div class="book-cover"><div class="placeholder" style="background:linear-gradient(135deg,${color},${color}dd)">${ext}</div><span class="local-book-badge"><i class="fas fa-folder"></i></span></div><div class="book-info"><div class="title" title="${cleanTitle}">${cleanTitle}</div><div class="meta"><span>${item.author || '本地'}</span><span>${progress}%</span></div><div class="book-progress-bar" style="width:${progress}%"></div></div>`;
+    return `<div class="book-card" onclick="openLocalBook('${filename}')"><div class="book-cover"><div class="placeholder" style="background:linear-gradient(135deg,${color},${color}dd)">${ext}</div><span class="local-book-badge"><i class="fas fa-folder"></i></span></div><div class="book-info"><div class="title" title="${cleanTitle}">${cleanTitle}</div><div class="meta"><span>${item.author || '本地'}</span><span>${progress}%</span></div><div class="book-progress-bar" style="width:${progress}%"></div></div></div>`;
   }).join('');
 }
 
@@ -1308,7 +1338,7 @@ async function processFile(file) {
     } catch(e) { console.warn('EPUB cover extraction failed:', e); }
   }
 
-  try { await dbPut(id, data); } catch(e) { console.error('IndexedDB save failed:', e); }
+  try { await dbPut(id, data); } catch(e) { console.error('IndexedDB save failed:', e); showToast('保存失败: ' + e.message); return; }
 
   const bookMeta = {
     id, name: file.name, format, size: file.size,
@@ -1351,9 +1381,9 @@ function renderBookshelf() {
 
   grid.innerHTML = books.map(book => {
     const ext = book.format === 'markdown' ? 'MD' : book.format.toUpperCase();
-    const colors = ['#e91e63','#9c27b0','#673ab7','#3f51b5','#2196f3','#009688','#4caf50','#ff980'];
+    const colors = ['#e91e63','#9c27b0','#673ab7','#3f51b5','#2196f3','#009688','#4caf50','#ff9800'];
     const color = colors[book.name.length % colors.length];
-    const progress = Math.round((book.progress || 0) * 10);
+    const progress = Math.round((book.progress || 0) * 100);
     const sizeStr = book.size > 1048576 ? (book.size/1048576).toFixed(1)+'MB' : (book.size/1024).toFixed(0)+'KB';
     return `<div class="book-card" onclick="openBook('${book.id}')"><div class="book-cover">${book.cover ? `<img src="${book.cover}" alt="">` : `<div class="placeholder" style="background:linear-gradient(135deg,${color},${color}dd)">${ext}</div>`}<button class="book-delete" onclick="event.stopPropagation();deleteBook('${book.id}')"><i class="fas fa-trash"></i></button></div><div class="book-info"><div class="title" title="${book.name}">${book.name}</div><div class="meta"><span>${sizeStr}</span><span>${progress}%</span></div></div><div class="book-progress-bar" style="width:${progress}%"></div></div>`;
   }).join('');
@@ -1470,7 +1500,22 @@ async function openEpub(book) {
     spread: 'none', flow: 'paginated'
   });
 
-  applyEpubTheme();
+  // 单一 content hook：每页加载时注入主题色 + 段落样式
+  state.epubRendition.hooks.content.register((contents) => {
+    const c = state.epubThemeColors[state.epubCurrentTheme] || state.epubThemeColors.light;
+    const indent = state.firstLineIndent || 0;
+    const paraSpace = state.paragraphSpacing || 1;
+    const gapV = state.pageGapV || 0;
+    const gapH = state.pageGapH || 0;
+    const fs = state.fontSize || 16;
+    const lh = state.lineHeight || 1.8;
+    const ls = state.letterSpacing || 0;
+    const ff = state.fontFamily || 'system-ui, sans-serif';
+    const style = contents.document.createElement('style');
+    style.id = 'moyue-theme';
+    style.textContent = `body{background:${c.bg}!important;color:${c.fg}!important;padding:${gapV}px ${gapH}px!important;font-size:${fs}px!important;line-height:${lh}!important;letter-spacing:${ls}px!important;font-family:${ff}!important}a:link,a:hover,a:active{color:${c.link}!important}img,video,svg{max-width:100%;height:auto}p{text-indent:${indent}em!important;margin-bottom:${paraSpace}em!important}`;
+    contents.document.head.appendChild(style);
+  });
 
   const navigation = await state.epub.loaded.navigation;
   renderToc(navigation.toc);
@@ -1502,6 +1547,33 @@ async function openEpub(book) {
 
   state.epubRendition.on('keydown', handleKeyNav);
 
+  // EPUB iframe 滚轮翻页（iframe 内事件不冒泡到外层 document）
+  const epubWheelHandler = (() => {
+    let accum = 0, timer = null;
+    return (e) => {
+      e.preventDefault();
+      accum += e.deltaY;
+      clearTimeout(timer);
+      timer = setTimeout(() => { accum = 0; }, 200);
+      if (Math.abs(accum) >= 30) {
+        if (accum > 0) state.epubRendition.next();
+        else state.epubRendition.prev();
+        accum = 0;
+      }
+    };
+  })();
+
+  // 方案1：通过 rendered 事件绑定到 iframe 内部文档
+  state.epubRendition.on('rendered', (section, view) => {
+    try {
+      const doc = view.document || (view.iframe && view.iframe.contentDocument);
+      if (doc) doc.addEventListener('wheel', epubWheelHandler, { passive: false });
+    } catch(e) {}
+  });
+
+  // 方案2：绑定到 epub-view 容器（兜底）
+  document.getElementById('epub-view').addEventListener('wheel', epubWheelHandler, { passive: false });
+
   state.epubRendition.on('selected', (cfiRange, contents) => {
     showHighlightMenu(cfiRange, contents);
   });
@@ -1513,18 +1585,21 @@ async function openEpub(book) {
   }
 }
 
+// EPUB 主题颜色（动态更新，单一 hook 读取）
+state.epubThemeColors = {
+  light:  { bg: '#fafafa', fg: '#333', link: '#2196F3' },
+  dark:   { bg: '#1a1a2e', fg: '#e0e0e0', link: '#64b5f6' },
+  sepia:  { bg: '#f4ecd8', fg: '#5b4636', link: '#8b6914' },
+  green:  { bg: '#e8f5e9', fg: '#2e4a32', link: '#43a047' }
+};
+state.epubCurrentTheme = state.theme;
+
 function applyEpubTheme() {
   if (!state.epubRendition) return;
-  const themes = {
-    light: { body: { color: '#33', background: '#fafafa' } },
-    dark: { body: { color: '#e0e0', background: '#1a2e' } },
-    sepia: { body: { color: '#5b4636', background: '#f4ecd8' } },
-    green: { body: { color: '#2e4a32', background: '#e8f5e9' } }
-  };
-  state.epubRendition.themes.registerRules('custom', themes[state.theme] || themes.light);
-  state.epubRendition.themes.select('custom');
-  state.epubRendition.themes.fontSize(state.fontSize + 'px');
-  state.epubRendition.themes.font(state.fontFamily);
+  state.epubCurrentTheme = state.theme;
+  // 刷新当前页以应用新主题
+  const loc = state.epubRendition.currentLocation();
+  if (loc && loc.start) state.epubRendition.display(loc.start.cfi);
 }
 
 function renderToc(toc, level = 0) {
@@ -1560,7 +1635,7 @@ async function openPdf(book) {
   view.style.display = 'block';
   view.innerHTML = '';
 
-  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.1.174/pdf.worker.min.js';
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
   // Convert data to ArrayBuffer — handle both ArrayBuffer (new) and base64 string (legacy)
   let ab;
@@ -1757,7 +1832,18 @@ function applyTextStyles() {
   view.style.lineHeight = state.lineHeight;
   view.style.letterSpacing = state.letterSpacing + 'px';
   view.style.fontFamily = state.fontFamily;
-  view.style.padding = state.pageGap + 'px ' + (state.pageGap * 2) + 'px';
+  view.style.padding = state.pageGapV + 'px ' + state.pageGapH + 'px';
+  // 段落间距 + 首行缩进（直接修改 DOM 元素样式）
+  view.querySelectorAll('p').forEach(p => {
+    p.style.marginBottom = state.paragraphSpacing + 'em';
+    p.style.textIndent = state.firstLineIndent + 'em';
+  });
+  view.querySelectorAll('li').forEach(li => {
+    li.style.marginBottom = (state.paragraphSpacing * 0.5) + 'em';
+  });
+  // EPUB 容器也要应用页边距
+  const epubView = document.getElementById('epub-view');
+  if (epubView) epubView.style.padding = state.pageGapV + 'px ' + state.pageGapH + 'px';
 }
 
 function saveTextProgress(view) {
@@ -1989,38 +2075,116 @@ function toggleThemeQuick() {
 
 function changeFontSize(delta) {
   state.fontSize = Math.max(12, Math.min(32, state.fontSize + delta));
-  document.getElementById('font-size-val').textContent = state.fontSize + 'px';
+  document.getElementById('font-size-val').value = state.fontSize;
   localStorage.setItem('moyue_fontSize', state.fontSize);
   applyTextStyles();
-  applyEpubTheme();
+  if (state.format === 'epub') applyEpubTheme();
 }
 
 function changeLineHeight(delta) {
   state.lineHeight = Math.max(1.2, Math.min(3, +(state.lineHeight + delta).toFixed(1)));
-  document.getElementById('line-height-val').textContent = state.lineHeight;
+  document.getElementById('line-height-val').value = state.lineHeight;
   localStorage.setItem('moyue_lineHeight', state.lineHeight);
   applyTextStyles();
+  if (state.format === 'epub') applyEpubTheme();
 }
 
 function changeLetterSpacing(delta) {
   state.letterSpacing = Math.max(-1, Math.min(5, +(state.letterSpacing + delta).toFixed(1)));
-  document.getElementById('letter-spacing-val').textContent = state.letterSpacing + 'px';
+  document.getElementById('letter-spacing-val').value = state.letterSpacing;
   localStorage.setItem('moyue_letterSpacing', state.letterSpacing);
   applyTextStyles();
+  if (state.format === 'epub') applyEpubTheme();
 }
 
 function changeFont(font) {
   state.fontFamily = font;
   localStorage.setItem('moyue_fontFamily', font);
   applyTextStyles();
-  applyEpubTheme();
+  if (state.format === 'epub') applyEpubTheme();
 }
 
-function changePageGap(delta) {
-  state.pageGap = Math.max(0, Math.min(60, state.pageGap + delta));
-  document.getElementById('page-gap-val').textContent = state.pageGap + 'px';
-  localStorage.setItem('moyue_pageGap', state.pageGap);
+function changePageGapV(delta) {
+  state.pageGapV = Math.max(0, state.pageGapV + delta);
+  document.getElementById('page-gap-v-val').value = state.pageGapV;
+  localStorage.setItem('moyue_pageGapV', state.pageGapV);
   applyTextStyles();
+  if (state.format === 'epub') applyEpubTheme();
+}
+
+function changePageGapH(delta) {
+  state.pageGapH = Math.max(0, state.pageGapH + delta);
+  document.getElementById('page-gap-h-val').value = state.pageGapH;
+  localStorage.setItem('moyue_pageGapH', state.pageGapH);
+  applyTextStyles();
+  if (state.format === 'epub') applyEpubTheme();
+}
+
+function changeParagraphSpacing(delta) {
+  state.paragraphSpacing = Math.max(0, Math.min(10, +(state.paragraphSpacing + delta).toFixed(1)));
+  document.getElementById('para-spacing-val').value = state.paragraphSpacing;
+  localStorage.setItem('moyue_paragraphSpacing', state.paragraphSpacing);
+  applyTextStyles();
+  if (state.format === 'epub') applyEpubTheme(); // 刷新 EPUB iframe
+}
+
+function changeFirstLineIndent(delta) {
+  state.firstLineIndent = Math.max(0, Math.min(10, +(state.firstLineIndent + delta).toFixed(1)));
+  document.getElementById('indent-val').value = state.firstLineIndent;
+  localStorage.setItem('moyue_firstLineIndent', state.firstLineIndent);
+  applyTextStyles();
+  if (state.format === 'epub') applyEpubTheme();
+}
+
+// 手动输入设置值
+function applyFontSizeInput(val) {
+  state.fontSize = Math.max(8, Math.min(72, parseInt(val) || 16));
+  document.getElementById('font-size-val').value = state.fontSize;
+  localStorage.setItem('moyue_fontSize', state.fontSize);
+  applyTextStyles();
+  if (state.format === 'epub') applyEpubTheme();
+}
+function applyLineHeightInput(val) {
+  state.lineHeight = Math.max(1, Math.min(5, parseFloat(val) || 1.8));
+  document.getElementById('line-height-val').value = state.lineHeight;
+  localStorage.setItem('moyue_lineHeight', state.lineHeight);
+  applyTextStyles();
+  if (state.format === 'epub') applyEpubTheme();
+}
+function applyLetterSpacingInput(val) {
+  state.letterSpacing = Math.max(-2, Math.min(10, parseFloat(val) || 0));
+  document.getElementById('letter-spacing-val').value = state.letterSpacing;
+  localStorage.setItem('moyue_letterSpacing', state.letterSpacing);
+  applyTextStyles();
+  if (state.format === 'epub') applyEpubTheme();
+}
+function applyPageGapVInput(val) {
+  state.pageGapV = Math.max(0, parseInt(val) || 20);
+  document.getElementById('page-gap-v-val').value = state.pageGapV;
+  localStorage.setItem('moyue_pageGapV', state.pageGapV);
+  applyTextStyles();
+  if (state.format === 'epub') applyEpubTheme();
+}
+function applyPageGapHInput(val) {
+  state.pageGapH = Math.max(0, parseInt(val) || 40);
+  document.getElementById('page-gap-h-val').value = state.pageGapH;
+  localStorage.setItem('moyue_pageGapH', state.pageGapH);
+  applyTextStyles();
+  if (state.format === 'epub') applyEpubTheme();
+}
+function applyParagraphSpacingInput(val) {
+  state.paragraphSpacing = Math.max(0, Math.min(20, parseFloat(val) || 1));
+  document.getElementById('para-spacing-val').value = state.paragraphSpacing;
+  localStorage.setItem('moyue_paragraphSpacing', state.paragraphSpacing);
+  applyTextStyles();
+  if (state.format === 'epub') applyEpubTheme();
+}
+function applyIndentInput(val) {
+  state.firstLineIndent = Math.max(0, Math.min(20, parseFloat(val) || 0));
+  document.getElementById('indent-val').value = state.firstLineIndent;
+  localStorage.setItem('moyue_firstLineIndent', state.firstLineIndent);
+  applyTextStyles();
+  if (state.format === 'epub') applyEpubTheme();
 }
 
 // ===== Fullscreen =====
@@ -2059,7 +2223,7 @@ function showToast(msg) {
   const toast = document.getElementById('toast');
   toast.textContent = msg;
   toast.classList.add('show');
-  setTimeout(() => toast.classList.remove('show'), 250);
+  setTimeout(() => toast.classList.remove('show'), 2500);
 }
 
 // ===== Keyboard =====
@@ -2087,6 +2251,8 @@ let _wheelAccum = 0;
 document.addEventListener('wheel', e => {
   if (!document.getElementById('reader').classList.contains('active')) return;
   if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+  // 侧边栏内滚动不触发翻页
+  if (e.target.closest('#sidebar')) return;
 
   const fmt = state.format;
   const isPaginated = (fmt === 'epub' || fmt === 'pdf');
@@ -2131,6 +2297,15 @@ document.addEventListener('click', e => {
 // ===== Init =====
 renderBookshelf();
 loadLocalTxtBooks();
+// 同步设置面板显示值
+document.getElementById('font-size-val').value = state.fontSize;
+document.getElementById('line-height-val').value = state.lineHeight;
+document.getElementById('letter-spacing-val').value = state.letterSpacing;
+document.getElementById('page-gap-v-val').value = state.pageGapV;
+document.getElementById('page-gap-h-val').value = state.pageGapH;
+document.getElementById('para-spacing-val').value = state.paragraphSpacing;
+document.getElementById('indent-val').value = state.firstLineIndent;
+document.getElementById('font-select').value = state.fontFamily;
 </script>
 </body>
 </html>
