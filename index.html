@@ -12,40 +12,40 @@
 <style>
 /* ===== CSS Variables & Themes ===== */
 :root {
-  --bg: #fafafa;
+  --bg: #fafa;
   --bg-secondary: #fff;
-  --text: #333;
+  --text: #33;
   --text-secondary: #666;
-  --border: #e0e0e0;
+  --border: #e0e0;
   --accent: #2196F3;
   --accent-light: #e3f2fd;
-  --shadow: rgba(0,0,0,0.08);
+  --shadow: rgba(0,0,0.08);
   --sidebar-bg: #fff;
   --hover: #f5f5f5;
-  --toolbar-bg: rgba(255,255,255,0.95);
+  --toolbar-bg: rgba(255,255,0.95);
   --card-bg: #fff;
   --card-hover: #f0f7ff;
-  --overlay: rgba(0,0,0,0.4);
+  --overlay: rgba(0,0,0.4);
   --scrollbar: #ccc;
   --scrollbar-hover: #aaa;
 }
 [data-theme="dark"] {
   --bg: #1a1a2e;
   --bg-secondary: #16213e;
-  --text: #e0e0e0;
-  --text-secondary: #a0a0a0;
+  --text: #e0e0;
+  --text-secondary: #a0a0;
   --border: #2a2a4a;
   --accent: #64b5f6;
   --accent-light: #1e3a5f;
-  --shadow: rgba(0,0,0,0.3);
+  --shadow: rgba(0,0,0.3);
   --sidebar-bg: #16213e;
   --hover: #1e2d4a;
-  --toolbar-bg: rgba(26,26,46,0.95);
+  --toolbar-bg: rgba(26,46,0.95);
   --card-bg: #16213e;
   --card-hover: #1e3a5f;
-  --overlay: rgba(0,0,0,0.6);
-  --scrollbar: #444;
-  --scrollbar-hover: #666;
+  --overlay: rgba(0,0,0.6);
+  --scrollbar: #44;
+  --scrollbar-hover: #66;
 }
 [data-theme="sepia"] {
   --bg: #f4ecd8;
@@ -76,7 +76,7 @@
   --shadow: rgba(46,74,50,0.1);
   --sidebar-bg: #f1f8f2;
   --hover: #d7eed8;
-  --toolbar-bg: rgba(232,245,233,0.95);
+  --toolbar-bg: rgba(232,245,23,0.95);
   --card-bg: #f1f8f2;
   --card-hover: #d7eed8;
   --overlay: rgba(46,74,50,0.3);
@@ -115,7 +115,7 @@ input, button, select { font-family: inherit; }
 }
 .shelf-header h1 {
   font-size: 28px;
-  font-weight: 700;
+  font-weight: 70;
   background: linear-gradient(135deg, var(--accent), #e91e63);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -147,7 +147,7 @@ input, button, select { font-family: inherit; }
 .shelf-content {
   flex: 1;
   overflow-y: auto;
-  padding: 8px 32px 32px;
+  padding: 8px 32px;
 }
 .drop-zone {
   border: 2px dashed var(--border);
@@ -199,7 +199,7 @@ input, button, select { font-family: inherit; }
   align-items: center;
   justify-content: center;
   font-size: 36px;
-  font-weight: 700;
+  font-weight: 70;
   color: #fff;
 }
 .book-info { padding: 10px 12px; }
@@ -233,7 +233,7 @@ input, button, select { font-family: inherit; }
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0.6);
   color: #fff;
   border: none;
   cursor: pointer;
@@ -319,7 +319,7 @@ input, button, select { font-family: inherit; }
   background: var(--bg);
   padding: 2px 6px;
   border-radius: 4px;
-  font-size: 11px;
+  font-size: 1px;
   font-family: monospace;
 }
 
@@ -352,7 +352,7 @@ input, button, select { font-family: inherit; }
   gap: 4px;
 }
 .toolbar .left { flex: 1; }
-.toolbar .center { flex: 0 0 auto; font-size: 14px; font-weight: 500; max-width: 40%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.toolbar .center { flex: 0 auto; font-size: 14px; font-weight: 500; max-width: 40%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 .toolbar .right { flex: 1; justify-content: flex-end; }
 .toolbar button {
   width: 36px;
@@ -494,8 +494,8 @@ input, button, select { font-family: inherit; }
   border: none;
 }
 #pdf-view {
-  width: 100%;
-  height: 100%;
+  width: 10%;
+  height: 10%;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -508,8 +508,8 @@ input, button, select { font-family: inherit; }
   box-shadow: 0 2px 12px var(--shadow);
 }
 #text-view {
-  width: 100%;
-  height: 100%;
+  width: 10%;
+  height: 10%;
   overflow-y: auto;
   padding: 40px;
   max-width: 800px;
@@ -531,11 +531,11 @@ input, button, select { font-family: inherit; }
 #text-view.markdown pre { background: var(--hover); padding: 16px; border-radius: 8px; overflow-x: auto; margin-bottom: 1em; }
 #text-view.markdown blockquote { border-left: 3px solid var(--accent); padding-left: 16px; color: var(--text-secondary); margin-bottom: 1em; }
 #text-view.markdown img { max-width: 100%; border-radius: 8px; }
-#text-view.markdown table { border-collapse: collapse; width: 100%; margin-bottom: 1em; }
+#text-view.markdown table { border-collapse: collapse; width: 10%; margin-bottom: 1em; }
 #text-view.markdown th, #text-view.markdown td { border: 1px solid var(--border); padding: 8px 12px; text-align: left; }
 #text-view.markdown th { background: var(--hover); }
 
-/* Page Navigation Arrows */
+/* Page Navigation Arows */
 .nav-arrow {
   position: absolute;
   top: 50%;
@@ -567,7 +567,7 @@ input, button, select { font-family: inherit; }
   flex-shrink: 0;
 }
 .progress-fill {
-  height: 100%;
+  height: 10%;
   background: var(--accent);
   transition: width 0.3s;
   width: 0;
@@ -644,7 +644,7 @@ input, button, select { font-family: inherit; }
   transition: all 0.2s;
 }
 .theme-btn:hover { transform: scale(1.1); }
-.theme-btn.active { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-light); }
+.theme-btn.active { border-color: var(--accent); box-shadow: 0 0 2px var(--accent-light); }
 .theme-btn[data-theme="light"] { background: #fafafa; border-color: #ddd; }
 .theme-btn[data-theme="dark"] { background: #1a1a2e; }
 .theme-btn[data-theme="sepia"] { background: #f4ecd8; }
@@ -713,7 +713,7 @@ kbd {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  height: 10%;
   color: var(--text-secondary);
   gap: 12px;
 }
@@ -723,7 +723,7 @@ kbd {
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
   .shelf-header { padding: 16px; }
-  .shelf-content { padding: 8px 16px 16px; }
+  .shelf-content { padding: 8px 16px; }
   .book-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 12px; }
   .sidebar.open { width: 260px; }
   .toolbar .center { display: none; }
@@ -746,7 +746,7 @@ kbd {
   box-shadow: 0 4px 16px var(--shadow);
   padding: 6px;
   display: none;
-  z-index: 300;
+  z-index: 30;
   gap: 4px;
 }
 .highlight-menu.show { display: flex; }
@@ -754,7 +754,7 @@ kbd {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  border: 2px solid rgba(0,0,0,0.1);
+  border: 2px solid rgba(0,0,0.1);
   cursor: pointer;
   transition: transform 0.2s;
 }
@@ -963,7 +963,7 @@ kbd {
     <button style="background:#4caf50" onclick="addHighlight('green')"></button>
     <button style="background:#2196f3" onclick="addHighlight('blue')"></button>
     <button style="background:#e91e63" onclick="addHighlight('pink')"></button>
-    <button style="background:transparent;border:1px solid #999" onclick="removeHighlight()"><i class="fas fa-times" style="font-size:10px;color:#999"></i></button>
+    <button style="background:transparent;border:1px solid #99" onclick="removeHighlight()"><i class="fas fa-times" style="font-size:10px;color:#999"></i></button>
   </div>
 </div>
 
@@ -989,8 +989,8 @@ const state = {
   theme: localStorage.getItem('moyue_theme') || 'light',
   sidebarTab: 'toc',
   searchTimer: null,
-  localBooks: [],       // Books discovered from ./txt/ folder
-  localBooksMap: {},    // {filename: {name, path, title, size, ...}}
+  localBooks: [],
+  localBooksMap: {},
 };
 
 // Apply saved theme
@@ -1002,7 +1002,7 @@ const DB_STORE = 'bookData';
 function openDB() {
   return new Promise((resolve, reject) => {
     const req = indexedDB.open(DB_NAME, 1);
-    req.onupgradeneeded = () => {
+    req.onupgradeneded = () => {
       if (!req.result.objectStoreNames.contains(DB_STORE)) req.result.createObjectStore(DB_STORE);
     };
     req.onsuccess = () => resolve(req.result);
@@ -1023,7 +1023,6 @@ async function dbDel(key) {
 }
 
 // ===== Local Books (txt/ folder) =====
-// Progress for local books is stored separately by filename
 function getLocalProgress(filename) {
   try {
     const map = JSON.parse(localStorage.getItem('moyue_localProgress') || '{}');
@@ -1050,7 +1049,6 @@ async function loadLocalTxtBooks() {
   const discovered = [];
 
   if (!isFileProtocol) {
-    // Method 1: Try fetching a books.json manifest
     try {
       const resp = await fetch('txt/books.json');
       if (resp.ok) {
@@ -1059,18 +1057,12 @@ async function loadLocalTxtBooks() {
           for (const item of manifest) {
             const file = item.file || item.name || item;
             const title = item.title || file.replace(/\.[^.]+$/, '');
-            discovered.push({
-              file: `txt/${file}`,
-              title,
-              author: item.author || '',
-              ext: file.split('.').pop().toLowerCase()
-            });
+            discovered.push({ file: `txt/${file}`, title, author: item.author || '', ext: file.split('.').pop().toLowerCase() });
           }
         }
       }
     } catch {}
 
-    // Method 2: Try fetching the txt/ directory listing
     if (discovered.length === 0) {
       try {
         const resp = await fetch('txt/');
@@ -1092,13 +1084,11 @@ async function loadLocalTxtBooks() {
     }
   }
 
-  // Filter out manifest files
   const filtered = discovered.filter(item => {
     const fname = item.file.split('/').pop().toLowerCase();
     return fname !== 'books.json' && fname !== 'index.json';
   });
 
-  // Clean up titles
   filtered.forEach(item => {
     if (!item.title || item.title === item.file.split('/').pop()) {
       item.title = item.file.split('/').pop().replace(/\.[^.]+$/, '');
@@ -1106,7 +1096,6 @@ async function loadLocalTxtBooks() {
     item.title = item.title.replace(/\.(txt|md|markdown|log|csv|json|xml|html|htm|rtf|fb2|epub|pdf)$/i, '');
   });
 
-  // Build local books map
   state.localBooksMap = {};
   for (const item of filtered) {
     const filename = item.file.split('/').pop();
@@ -1123,34 +1112,9 @@ async function loadLocalTxtBooks() {
     statusEl.textContent = '';
     statusEl.className = 'local-status';
     if (isFileProtocol) {
-      gridEl.innerHTML = `
-        <div class="local-empty" style="grid-column:1/-1">
-          <i class="fas fa-folder-open"></i>
-          <p>本地文件无法自动扫描</p>
-          <div class="hint">
-            浏览器安全限制：<code>file://</code> 协议下无法自动读取文件夹。<br><br>
-            <strong>解决方案（任选一种）：</strong><br><br>
-            <strong>方案 1：用本地服务器打开（推荐）</strong><br>
-            在 index.html 所在目录运行：<br>
-            <code>python3 -m http.server 8080</code><br>
-            然后访问 <code>http://localhost:8080</code><br><br>
-            <strong>方案 2：导入文件夹</strong><br>
-            点击上方「导入文件夹」按钮，选择包含书籍的文件夹即可。
-          </div>
-        </div>`;
+      gridEl.innerHTML = `<div class="local-empty" style="grid-column:1/-1"><i class="fas fa-folder-open"></i><p>本地文件无法自动扫描</p><div class="hint">浏览器安全限制：<code>file://</code> 协议下无法自动读取文件夹。<br><br><strong>解决方案（任选一种）：</strong><br><br><strong>方案 1：用本地服务器打开（推荐）</strong><br>在 index.html 所在目录运行：<br><code>python3 -m http.server 8080</code><br>然后访问 <code>http://localhost:8080</code><br><br><strong>方案 2：导入文件夹</strong><br>点击上方「导入文件夹」按钮，选择包含书籍的文件夹即可。</div></div>`;
     } else {
-      gridEl.innerHTML = `
-        <div class="local-empty" style="grid-column:1/-1">
-          <i class="fas fa-folder-open"></i>
-          <p>未发现本地书籍</p>
-          <div class="hint">
-            <strong>自动加载方式：</strong><br>
-            在 index.html 同目录下创建 <code>txt/</code> 文件夹，放入书籍文件后点击「刷新」。<br><br>
-            <strong>可选：</strong>创建 <code>txt/books.json</code> 指定书名：<br>
-            <code>[{"file":"book.txt","title":"书名"}]</code><br><br>
-            <strong>或：</strong>点击「导入文件夹」选择本地文件夹批量导入。
-          </div>
-        </div>`;
+      gridEl.innerHTML = `<div class="local-empty" style="grid-column:1/-1"><i class="fas fa-folder-open"></i><p>未发现本地书籍</p><div class="hint"><strong>自动加载方式：</strong><br>在 index.html 同目录下创建 <code>txt/</code> 文件夹，放入书籍文件后点击「刷新」。<br><br><strong>可选：</strong>创建 <code>txt/books.json</code> 指定书名：<br><code>[{"file":"book.txt","title":"书名"}]</code><br><br><strong>或：</strong>点击「导入文件夹」选择本地文件夹批量导入。</div></div>`;
     }
   }
 }
@@ -1158,32 +1122,17 @@ async function loadLocalTxtBooks() {
 function renderLocalBooks() {
   const grid = document.getElementById('local-grid');
   const section = document.getElementById('local-books');
-  if (state.localBooks.length === 0) {
-    grid.innerHTML = '';
-    return;
-  }
+  if (state.localBooks.length === 0) { grid.innerHTML = ''; return; }
   section.style.display = 'block';
-  const colors = ['#009688','#4caf50','#8bc34a','#cddc39','#ff9800','#ff5722','#795548','#607d8b'];
+  const colors = ['#009688','#4caf50','#8bc34a','#cddc39','#ff9800','#ff572','#795548','#607d8b'];
   grid.innerHTML = state.localBooks.map((item, i) => {
     const filename = item.file.split('/').pop();
     const prog = getLocalProgress(filename);
-    const progress = Math.round((prog.progress || 0) * 100);
+    const progress = Math.round((prog.progress || 0) * 10);
     const ext = item.ext.toUpperCase();
     const color = colors[i % colors.length];
-    // Ensure title is clean (no extension)
     const cleanTitle = (item.title || '').replace(/\.(txt|md|markdown|log|csv|json|xml|html|htm|rtf|fb2|epub|pdf)$/i, '').replace(/\.[^.]+$/, '');
-    return `
-    <div class="book-card" onclick="openLocalBook('${filename}')">
-      <div class="book-cover">
-        <div class="placeholder" style="background:linear-gradient(135deg,${color},${color}dd)">${ext}</div>
-        <span class="local-book-badge"><i class="fas fa-folder"></i></span>
-      </div>
-      <div class="book-info">
-        <div class="title" title="${cleanTitle}">${cleanTitle}</div>
-        <div class="meta"><span>${item.author || '本地'}</span><span>${progress}%</span></div>
-      </div>
-      <div class="book-progress-bar" style="width:${progress}%"></div>
-    </div>`;
+    return `<div class="book-card" onclick="openLocalBook('${filename}')"><div class="book-cover"><div class="placeholder" style="background:linear-gradient(135deg,${color},${color}dd)">${ext}</div><span class="local-book-badge"><i class="fas fa-folder"></i></span></div><div class="book-info"><div class="title" title="${cleanTitle}">${cleanTitle}</div><div class="meta"><span>${item.author || '本地'}</span><span>${progress}%</span></div><div class="book-progress-bar" style="width:${progress}%"></div></div>`;
   }).join('');
 }
 
@@ -1222,27 +1171,18 @@ async function openLocalBook(filename) {
   showLoading(true);
   try {
     if (item._blob) {
-      // Imported file — read from blob
       if (format === 'epub' || format === 'pdf') {
-        const ab = await item._blob.arrayBuffer();
-        const bytes = new Uint8Array(ab);
-        let binary = '';
-        bytes.forEach(b => binary += String.fromCharCode(b));
-        book.data = btoa(binary);
+        book.data = await item._blob.arrayBuffer();
+        book.size = item._blob.size;
       } else {
         book.data = await item._blob.text();
       }
     } else {
-      // Remote file — fetch from path
       const resp = await fetch(item.file);
       if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
       if (format === 'epub' || format === 'pdf') {
-        const ab = await resp.arrayBuffer();
-        const bytes = new Uint8Array(ab);
-        let binary = '';
-        bytes.forEach(b => binary += String.fromCharCode(b));
-        book.data = btoa(binary);
-        book.size = ab.byteLength;
+        book.data = await resp.arrayBuffer();
+        book.size = book.data.byteLength;
       } else {
         book.data = await resp.text();
         book.size = book.data.length;
@@ -1290,9 +1230,8 @@ document.addEventListener('DOMContentLoaded', () => {
       for (const file of files) {
         const ext = file.name.split('.').pop().toLowerCase();
         if (!['epub','pdf','txt','md','markdown','html','htm','fb2','rtf','log','csv','json','xml'].includes(ext)) continue;
-        // Store into local books map
         state.localBooksMap[file.name] = {
-          file: null, // will use blob URL
+          file: null,
           title: file.name.replace(/\.(txt|md|markdown|log)$/i, ''),
           author: '导入',
           ext,
@@ -1332,9 +1271,7 @@ dropZone.addEventListener('drop', e => {
 });
 
 async function handleFiles(files) {
-  for (const file of files) {
-    await processFile(file);
-  }
+  for (const file of files) { await processFile(file); }
   renderBookshelf();
 }
 
@@ -1348,34 +1285,29 @@ async function processFile(file) {
   const format = formatMap[ext];
   if (!format) { showToast(`不支持的格式: .${ext}`); return; }
 
-  // Generate ID
   const id = 'book_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6);
 
-  // Read file data
+  // Read file data — store ArrayBuffer directly for binary formats (avoids btoa/atob corruption)
   let data;
+  let _arrayBuffer = null;
   if (format === 'epub' || format === 'pdf') {
-    const ab = await file.arrayBuffer();
-    const bytes = new Uint8Array(ab);
-    let binary = '';
-    bytes.forEach(b => binary += String.fromCharCode(b));
-    data = btoa(binary);
+    _arrayBuffer = await file.arrayBuffer();
+    data = _arrayBuffer; // IndexedDB can store ArrayBuffer natively
   } else {
     data = await file.text();
   }
 
   // Try to extract cover from EPUB
   let cover = null;
-  if (format === 'epub') {
+  if (format === 'epub' && _arrayBuffer) {
     try {
-      const ab = Uint8Array.from(atob(data), c => c.charCodeAt(0)).buffer;
-      const book = ePub(ab);
+      const book = ePub(_arrayBuffer);
       await book.ready;
       cover = await book.coverUrl();
       book.destroy();
-    } catch(e) {}
+    } catch(e) { console.warn('EPUB cover extraction failed:', e); }
   }
 
-  // Store data in IndexedDB (large), metadata in localStorage (small)
   try { await dbPut(id, data); } catch(e) { console.error('IndexedDB save failed:', e); }
 
   const bookMeta = {
@@ -1384,7 +1316,6 @@ async function processFile(file) {
     progress: 0, location: null, bookmarks: [], highlights: []
   };
 
-  // Check if same name exists
   const existing = state.books.findIndex(b => b.name === file.name);
   if (existing >= 0) {
     try { await dbDel(state.books[existing].id); } catch(e) {}
@@ -1400,22 +1331,16 @@ async function processFile(file) {
 function renderBookshelf() {
   const grid = document.getElementById('book-grid');
   const recent = document.getElementById('recent-books');
-  if (state.books.length === 0) {
-    recent.style.display = 'none';
-    return;
-  }
+  if (state.books.length === 0) { recent.style.display = 'none'; return; }
   recent.style.display = 'block';
 
-  // Filter and sort
   let books = [...state.books];
   const searchEl = document.getElementById('shelf-search');
   const sortEl = document.getElementById('shelf-sort');
   const query = searchEl ? searchEl.value.trim().toLowerCase() : '';
   const sortBy = sortEl ? sortEl.value : 'recent';
 
-  if (query) {
-    books = books.filter(b => b.name.toLowerCase().includes(query));
-  }
+  if (query) { books = books.filter(b => b.name.toLowerCase().includes(query)); }
 
   switch (sortBy) {
     case 'name': books.sort((a, b) => a.name.localeCompare(b.name)); break;
@@ -1426,22 +1351,11 @@ function renderBookshelf() {
 
   grid.innerHTML = books.map(book => {
     const ext = book.format === 'markdown' ? 'MD' : book.format.toUpperCase();
-    const colors = ['#e91e63','#9c27b0','#673ab7','#3f51b5','#2196f3','#009688','#4caf50','#ff9800'];
+    const colors = ['#e91e63','#9c27b0','#673ab7','#3f51b5','#2196f3','#009688','#4caf50','#ff980'];
     const color = colors[book.name.length % colors.length];
-    const progress = Math.round((book.progress || 0) * 100);
+    const progress = Math.round((book.progress || 0) * 10);
     const sizeStr = book.size > 1048576 ? (book.size/1048576).toFixed(1)+'MB' : (book.size/1024).toFixed(0)+'KB';
-    return `
-    <div class="book-card" onclick="openBook('${book.id}')">
-      <div class="book-cover">
-        ${book.cover ? `<img src="${book.cover}" alt="">` : `<div class="placeholder" style="background:linear-gradient(135deg,${color},${color}dd)">${ext}</div>`}
-        <button class="book-delete" onclick="event.stopPropagation();deleteBook('${book.id}')"><i class="fas fa-trash"></i></button>
-      </div>
-      <div class="book-info">
-        <div class="title" title="${book.name}">${book.name}</div>
-        <div class="meta"><span>${sizeStr}</span><span>${progress}%</span></div>
-      </div>
-      <div class="book-progress-bar" style="width:${progress}%"></div>
-    </div>`;
+    return `<div class="book-card" onclick="openBook('${book.id}')"><div class="book-cover">${book.cover ? `<img src="${book.cover}" alt="">` : `<div class="placeholder" style="background:linear-gradient(135deg,${color},${color}dd)">${ext}</div>`}<button class="book-delete" onclick="event.stopPropagation();deleteBook('${book.id}')"><i class="fas fa-trash"></i></button></div><div class="book-info"><div class="title" title="${book.name}">${book.name}</div><div class="meta"><span>${sizeStr}</span><span>${progress}%</span></div></div><div class="book-progress-bar" style="width:${progress}%"></div></div>`;
   }).join('');
 }
 
@@ -1449,14 +1363,13 @@ function deleteBook(id) {
   const book = state.books.find(b => b.id === id);
   if (!book || !confirm(`删除《${book.name}》？`)) return;
   state.books = state.books.filter(b => b.id !== id);
-  dbDel(id).catch(() => {}); // Clean up IndexedDB
+  dbDel(id).catch(() => {});
   saveBooks();
   renderBookshelf();
   showToast('已删除');
 }
 
 function saveBooks() {
-  // Only store metadata in localStorage (data lives in IndexedDB)
   localStorage.setItem('moyue_books', JSON.stringify(state.books));
 }
 
@@ -1465,14 +1378,20 @@ async function openBook(id) {
   const book = state.books.find(b => b.id === id);
   if (!book) return;
 
-  // Load data from IndexedDB
   showLoading(true);
   try {
     const data = await dbGet(id);
-    if (data) book.data = data;
-    else { showToast('书籍数据未找到，请重新导入'); showLoading(false); return; }
+    if (data) {
+      book.data = data;
+    } else {
+      showToast('书籍数据未找到，请重新导入');
+      showLoading(false);
+      return;
+    }
   } catch(e) {
-    showToast('读取数据失败'); showLoading(false); return;
+    showToast('读取数据失败');
+    showLoading(false);
+    return;
   }
 
   state.currentBook = book;
@@ -1519,23 +1438,43 @@ async function openEpub(book) {
   view.style.display = 'block';
   view.innerHTML = '';
 
-  const ab = Uint8Array.from(atob(book.data), c => c.charCodeAt(0)).buffer;
-  state.epub = ePub(ab);
-  await state.epub.ready;
+  // Convert data to ArrayBuffer — handle both ArrayBuffer (new) and base64 string (legacy)
+  let ab;
+  if (book.data instanceof ArrayBuffer) {
+    ab = book.data;
+  } else if (book.data instanceof Uint8Array) {
+    ab = book.data.buffer;
+  } else if (typeof book.data === 'string') {
+    // Legacy base64 data
+    try {
+      const binary = atob(book.data);
+      const bytes = new Uint8Array(binary.length);
+      for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+      ab = bytes.buffer;
+    } catch(e) {
+      throw new Error('EPUB 数据解码失败: ' + e.message);
+    }
+  } else {
+    throw new Error('EPUB 数据格式不正确');
+  }
+
+  try {
+    state.epub = ePub(ab);
+    await state.epub.ready;
+  } catch(e) {
+    throw new Error('EPUB 解析失败: ' + e.message);
+  }
 
   state.epubRendition = state.epub.renderTo(view, {
     width: '100%', height: '100%',
     spread: 'none', flow: 'paginated'
   });
 
-  // Apply theme
   applyEpubTheme();
 
-  // Load TOC
   const navigation = await state.epub.loaded.navigation;
   renderToc(navigation.toc);
 
-  // Load saved location
   if (book.location) {
     await state.epubRendition.display(book.location);
   } else if (book.progress > 0) {
@@ -1544,7 +1483,6 @@ async function openEpub(book) {
     await state.epubRendition.display();
   }
 
-  // Track location changes
   state.epubRendition.on('relocated', location => {
     if (!location || !location.start) return;
     const progress = state.epub.locations.percentageFromCfi(location.start.cfi);
@@ -1556,23 +1494,18 @@ async function openEpub(book) {
     updateBookmarkButton();
   });
 
-  // Generate locations for progress
   await state.epub.locations.generate(1600);
 
-  // Re-display to trigger initial relocated
   if (book.location) {
     await state.epubRendition.display(book.location);
   }
 
-  // Keyboard & click navigation
   state.epubRendition.on('keydown', handleKeyNav);
 
-  // Text selection for highlights
   state.epubRendition.on('selected', (cfiRange, contents) => {
     showHighlightMenu(cfiRange, contents);
   });
 
-  // Load saved highlights
   if (book.highlights) {
     book.highlights.forEach(h => {
       try { state.epubRendition.annotations.highlight(h.cfiRange, {}, (e) => {}, h.color); } catch(e) {}
@@ -1583,8 +1516,8 @@ async function openEpub(book) {
 function applyEpubTheme() {
   if (!state.epubRendition) return;
   const themes = {
-    light: { body: { color: '#333', background: '#fafafa' } },
-    dark: { body: { color: '#e0e0e0', background: '#1a1a2e' } },
+    light: { body: { color: '#33', background: '#fafafa' } },
+    dark: { body: { color: '#e0e0', background: '#1a2e' } },
     sepia: { body: { color: '#5b4636', background: '#f4ecd8' } },
     green: { body: { color: '#2e4a32', background: '#e8f5e9' } }
   };
@@ -1606,9 +1539,7 @@ function renderToc(toc, level = 0) {
       if (window.innerWidth < 768) toggleSidebar();
     };
     container.appendChild(div);
-    if (item.subitems && item.subitems.length) {
-      renderToc(item.subitems, level + 1);
-    }
+    if (item.subitems && item.subitems.length) { renderToc(item.subitems, level + 1); }
   });
 }
 
@@ -1629,27 +1560,39 @@ async function openPdf(book) {
   view.style.display = 'block';
   view.innerHTML = '';
 
-  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.1.174/pdf.worker.min.js';
 
-  const ab = Uint8Array.from(atob(book.data), c => c.charCodeAt(0)).buffer;
-  state.pdfDoc = await pdfjsLib.getDocument({ data: ab }).promise;
+  // Convert data to ArrayBuffer — handle both ArrayBuffer (new) and base64 string (legacy)
+  let ab;
+  if (book.data instanceof ArrayBuffer) {
+    ab = book.data;
+  } else if (book.data instanceof Uint8Array) {
+    ab = book.data.buffer;
+  } else if (typeof book.data === 'string') {
+    try {
+      const binary = atob(book.data);
+      const bytes = new Uint8Array(binary.length);
+      for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+      ab = bytes.buffer;
+    } catch(e) {
+      throw new Error('PDF 数据解码失败: ' + e.message);
+    }
+  } else {
+    throw new Error('PDF 数据格式不正确');
+  }
+
+  try {
+    state.pdfDoc = await pdfjsLib.getDocument({ data: ab }).promise;
+  } catch(e) {
+    throw new Error('PDF 解析失败: ' + e.message);
+  }
   state.pdfPage = book.progress ? Math.max(1, Math.round(book.progress * state.pdfDoc.numPages)) : 1;
 
-  // Controls
   const controls = document.createElement('div');
   controls.className = 'pdf-controls';
-  controls.innerHTML = `
-    <button onclick="pdfPrev()"><i class="fas fa-chevron-left"></i></button>
-    <span id="pdf-page-info">${state.pdfPage} / ${state.pdfDoc.numPages}</span>
-    <button onclick="pdfNext()"><i class="fas fa-chevron-right"></i></button>
-    <div style="flex:1"></div>
-    <button onclick="pdfZoom(-0.2)"><i class="fas fa-search-minus"></i></button>
-    <span id="pdf-zoom">${Math.round(state.pdfScale*100)}%</span>
-    <button onclick="pdfZoom(0.2)"><i class="fas fa-search-plus"></i></button>
-  `;
+  controls.innerHTML = `<button onclick="pdfPrev()"><i class="fas fa-chevron-left"></i></button><span id="pdf-page-info">${state.pdfPage} / ${state.pdfDoc.numPages}</span><button onclick="pdfNext()"><i class="fas fa-chevron-right"></i></button><div style="flex:1"></div><button onclick="pdfZoom(-0.2)"><i class="fas fa-search-minus"></i></button><span id="pdf-zoom">${Math.round(state.pdfScale*100)}%</span><button onclick="pdfZoom(0.2)"><i class="fas fa-search-plus"></i></button>`;
   view.appendChild(controls);
 
-  // Canvas container
   const canvasWrap = document.createElement('div');
   canvasWrap.id = 'pdf-canvas-wrap';
   canvasWrap.style.cssText = 'flex:1;overflow:auto;display:flex;flex-direction:column;align-items:center;gap:16px;padding:16px;';
@@ -1658,14 +1601,10 @@ async function openPdf(book) {
   await renderPdfPage(state.pdfPage);
   updateProgress((state.pdfPage - 1) / state.pdfDoc.numPages);
 
-  // TOC
   try {
     const outline = await state.pdfDoc.getOutline();
-    if (outline && outline.length) {
-      renderPdfToc(outline);
-    } else {
-      document.getElementById('sidebar-content').innerHTML = '<div class="empty-state"><p>无目录</p></div>';
-    }
+    if (outline && outline.length) { renderPdfToc(outline); }
+    else { document.getElementById('sidebar-content').innerHTML = '<div class="empty-state"><p>无目录</p></div>'; }
   } catch(e) {
     document.getElementById('sidebar-content').innerHTML = '<div class="empty-state"><p>无目录</p></div>';
   }
@@ -1730,9 +1669,7 @@ async function renderPdfToc(outline, level = 0) {
       }
     };
     container.appendChild(div);
-    if (item.items && item.items.length) {
-      await renderPdfToc(item.items, level + 1);
-    }
+    if (item.items && item.items.length) { await renderPdfToc(item.items, level + 1); }
   }
 }
 
@@ -1755,7 +1692,6 @@ function openMarkdown(book) {
   view.innerHTML = marked.parse(book.data);
   applyTextStyles();
   restoreScroll(book);
-  // Generate TOC from headings
   generateTextToc(view);
   view.onscroll = () => saveTextProgress(view);
 }
@@ -1765,10 +1701,9 @@ function openHtml(book) {
   view.style.display = 'block';
   view.className = '';
   let html = book.data;
-  // Sanitize: remove scripts, event handlers, javascript: URLs
   html = html.replace(/<script[\s\S]*?<\/script>/gi, '');
-  html = html.replace(/\son\w+\s*=\s*(["'])[\s\S]*?\1/gi, ''); // onclick="..." etc
-  html = html.replace(/\son\w+\s*=\s*[^\s>]*/gi, ''); // onclick=unquoted
+  html = html.replace(/\son\w+\s*=\s*(["'])[\s\S]*?\1/gi, '');
+  html = html.replace(/\son\w+\s*=\s*[^\s>]*/gi, '');
   html = html.replace(/href\s*=\s*["']?\s*javascript:/gi, 'href="#" data-blocked="');
   html = html.replace(/src\s*=\s*["']?\s*javascript:/gi, 'src="" data-blocked="');
   view.innerHTML = html;
@@ -1786,7 +1721,6 @@ function openFb2(book) {
     const parser = new DOMParser();
     const xml = parser.parseFromString(book.data, 'text/xml');
     let html = '';
-    // Extract title
     const titleInfo = xml.querySelector('title-info');
     if (titleInfo) {
       const bookTitle = titleInfo.querySelector('book-title');
@@ -1798,25 +1732,19 @@ function openFb2(book) {
         html += `<p style="color:var(--text-secondary);margin-bottom:2em">作者: ${fn ? fn.textContent : ''} ${ln ? ln.textContent : ''}</p>`;
       }
     }
-    // Extract body
     const body = xml.querySelector('body');
     if (body) {
       const sections = body.querySelectorAll('section');
       sections.forEach(sec => {
         const pElements = sec.querySelectorAll('p, title, subtitle, epigraph');
         pElements.forEach(p => {
-          if (p.tagName === 'title' || p.tagName === 'subtitle') {
-            html += `<h2>${p.textContent}</h2>`;
-          } else {
-            html += `<p>${p.textContent}</p>`;
-          }
+          if (p.tagName === 'title' || p.tagName === 'subtitle') { html += `<h2>${p.textContent}</h2>`; }
+          else { html += `<p>${p.textContent}</p>`; }
         });
       });
     }
     view.innerHTML = html || '<p>无法解析 FB2 内容</p>';
-  } catch(e) {
-    view.textContent = book.data;
-  }
+  } catch(e) { view.textContent = book.data; }
   applyTextStyles();
   restoreScroll(book);
   generateTextToc(view);
@@ -1839,13 +1767,9 @@ function saveTextProgress(view) {
   updateProgress(state.currentBook.progress);
   state.currentBook._scrollTop = view.scrollTop;
   document.getElementById('reading-info-right').textContent = `${Math.round(state.currentBook.progress*100)}%`;
-  // Local books save progress by filename, not to main books list
   if (state.currentBook._local && state.currentBook._filename) {
-    saveLocalProgress(state.currentBook._filename, {
-      progress: state.currentBook.progress,
-      scrollTop: view.scrollTop
-    });
-    renderLocalBooks(); // Update progress bar on bookshelf
+    saveLocalProgress(state.currentBook._filename, { progress: state.currentBook.progress, scrollTop: view.scrollTop });
+    renderLocalBooks();
   } else {
     saveBooks();
   }
@@ -1853,20 +1777,14 @@ function saveTextProgress(view) {
 
 function restoreScroll(book) {
   const view = document.getElementById('text-view');
-  if (book._scrollTop) {
-    setTimeout(() => view.scrollTop = book._scrollTop, 50);
-  } else if (book.progress > 0) {
-    setTimeout(() => view.scrollTop = book.progress * (view.scrollHeight - view.clientHeight), 50);
-  }
+  if (book._scrollTop) { setTimeout(() => view.scrollTop = book._scrollTop, 50); }
+  else if (book.progress > 0) { setTimeout(() => view.scrollTop = book.progress * (view.scrollHeight - view.clientHeight), 50); }
 }
 
 function generateTextToc(container) {
   const tocContainer = document.getElementById('sidebar-content');
   const headings = container.querySelectorAll('h1, h2, h3, h4');
-  if (headings.length === 0) {
-    tocContainer.innerHTML = '<div class="empty-state"><p>无标题结构</p></div>';
-    return;
-  }
+  if (headings.length === 0) { tocContainer.innerHTML = '<div class="empty-state"><p>无标题结构</p></div>'; return; }
   tocContainer.innerHTML = '';
   headings.forEach((h, i) => {
     const level = parseInt(h.tagName[1]) - 1;
@@ -1881,31 +1799,19 @@ function generateTextToc(container) {
 
 // ===== Navigation =====
 function prevPage() {
-  if (state.format === 'epub' && state.epubRendition) {
-    state.epubRendition.prev();
-  } else if (state.format === 'pdf') {
-    pdfPrev();
-  } else {
-    const view = document.getElementById('text-view');
-    view.scrollBy({ top: -view.clientHeight + 50, behavior: 'smooth' });
-  }
+  if (state.format === 'epub' && state.epubRendition) { state.epubRendition.prev(); }
+  else if (state.format === 'pdf') { pdfPrev(); }
+  else { const view = document.getElementById('text-view'); view.scrollBy({ top: -view.clientHeight + 50, behavior: 'smooth' }); }
 }
 
 function nextPage() {
-  if (state.format === 'epub' && state.epubRendition) {
-    state.epubRendition.next();
-  } else if (state.format === 'pdf') {
-    pdfNext();
-  } else {
-    const view = document.getElementById('text-view');
-    view.scrollBy({ top: view.clientHeight - 50, behavior: 'smooth' });
-  }
+  if (state.format === 'epub' && state.epubRendition) { state.epubRendition.next(); }
+  else if (state.format === 'pdf') { pdfNext(); }
+  else { const view = document.getElementById('text-view'); view.scrollBy({ top: view.clientHeight - 50, behavior: 'smooth' }); }
 }
 
 // ===== Sidebar =====
-function toggleSidebar() {
-  document.getElementById('sidebar').classList.toggle('open');
-}
+function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); }
 
 function switchSidebarTab(tab) {
   state.sidebarTab = tab;
@@ -1915,7 +1821,6 @@ function switchSidebarTab(tab) {
   document.getElementById('search-box').style.display = tab === 'search' ? 'block' : 'none';
   if (tab === 'bookmarks') renderBookmarks();
   else if (tab === 'search') document.getElementById('search-input').focus();
-  // TOC is rendered on book load
 }
 
 function renderBookmarks() {
@@ -1925,14 +1830,7 @@ function renderBookmarks() {
     container.innerHTML = '<div class="empty-state"><p>暂无书签</p></div>';
     return;
   }
-  container.innerHTML = book.bookmarks.map((bm, i) => `
-    <div class="bookmark-item" onclick="goToBookmark(${i})">
-      <button class="bm-delete" onclick="event.stopPropagation();deleteBookmark(${i})"><i class="fas fa-times"></i></button>
-      <div class="bm-title">${bm.title || '书签 ' + (i+1)}</div>
-      <div class="bm-text">${bm.text || ''}</div>
-      <div class="bm-time">${new Date(bm.time).toLocaleString()}</div>
-    </div>
-  `).join('');
+  container.innerHTML = book.bookmarks.map((bm, i) => `<div class="bookmark-item" onclick="goToBookmark(${i})"><button class="bm-delete" onclick="event.stopPropagation();deleteBookmark(${i})"><i class="fas fa-times"></i></button><div class="bm-title">${bm.title || '书签 ' + (i+1)}</div><div class="bm-text">${bm.text || ''}</div><div class="bm-time">${new Date(bm.time).toLocaleString()}</div></div>`).join('');
 }
 
 function toggleBookmark() {
@@ -1945,13 +1843,8 @@ function toggleBookmark() {
     if (!loc || !loc.start) return;
     const cfi = loc.start.cfi;
     const existing = book.bookmarks.findIndex(b => b.cfi === cfi);
-    if (existing >= 0) {
-      book.bookmarks.splice(existing, 1);
-      showToast('已移除书签');
-    } else {
-      book.bookmarks.push({ cfi, title: '位置 ' + Math.round((book.progress||0)*100) + '%', text: '', time: Date.now() });
-      showToast('已添加书签');
-    }
+    if (existing >= 0) { book.bookmarks.splice(existing, 1); showToast('已移除书签'); }
+    else { book.bookmarks.push({ cfi, title: '位置 ' + Math.round((book.progress||0)*100) + '%', text: '', time: Date.now() }); showToast('已添加书签'); }
   } else {
     const view = document.getElementById('text-view');
     const pct = book.progress || 0;
@@ -1966,15 +1859,10 @@ function goToBookmark(index) {
   const book = state.currentBook;
   const bm = book.bookmarks[index];
   if (!bm) return;
-  if (book.format === 'epub' && bm.cfi) {
-    state.epubRendition.display(bm.cfi);
-  } else if (bm.progress !== undefined) {
-    if (book.format === 'pdf') {
-      renderPdfPage(Math.max(1, Math.round(bm.progress * state.pdfDoc.numPages)));
-    } else {
-      const view = document.getElementById('text-view');
-      view.scrollTop = bm.scrollTop || (bm.progress * (view.scrollHeight - view.clientHeight));
-    }
+  if (book.format === 'epub' && bm.cfi) { state.epubRendition.display(bm.cfi); }
+  else if (bm.progress !== undefined) {
+    if (book.format === 'pdf') { renderPdfPage(Math.max(1, Math.round(bm.progress * state.pdfDoc.numPages))); }
+    else { const view = document.getElementById('text-view'); view.scrollTop = bm.scrollTop || (bm.progress * (view.scrollHeight - view.clientHeight)); }
   }
 }
 
@@ -1989,13 +1877,10 @@ function updateBookmarkButton() {
   const btn = document.getElementById('btn-bookmark');
   const book = state.currentBook;
   if (!book || !book.bookmarks) { btn.innerHTML = '<i class="far fa-bookmark"></i>'; return; }
-
   let isBookmarked = false;
   if (book.format === 'epub' && state.epubRendition) {
     const loc = state.epubRendition.currentLocation();
-    if (loc && loc.start) {
-      isBookmarked = book.bookmarks.some(b => b.cfi === loc.start.cfi);
-    }
+    if (loc && loc.start) { isBookmarked = book.bookmarks.some(b => b.cfi === loc.start.cfi); }
   }
   btn.innerHTML = isBookmarked ? '<i class="fas fa-bookmark" style="color:var(--accent)"></i>' : '<i class="far fa-bookmark"></i>';
 }
@@ -2003,19 +1888,14 @@ function updateBookmarkButton() {
 // ===== Search =====
 function toggleSearch() {
   const sidebar = document.getElementById('sidebar');
-  if (!sidebar.classList.contains('open')) {
-    sidebar.classList.add('open');
-    switchSidebarTab('search');
-  } else if (state.sidebarTab === 'search') {
-    sidebar.classList.remove('open');
-  } else {
-    switchSidebarTab('search');
-  }
+  if (!sidebar.classList.contains('open')) { sidebar.classList.add('open'); switchSidebarTab('search'); }
+  else if (state.sidebarTab === 'search') { sidebar.classList.remove('open'); }
+  else { switchSidebarTab('search'); }
 }
 
 function debounceSearch() {
   clearTimeout(state.searchTimer);
-  state.searchTimer = setTimeout(performSearch, 300);
+  state.searchTimer = setTimeout(performSearch, 30);
 }
 
 async function performSearch() {
@@ -2035,22 +1915,12 @@ async function performSearch() {
         if (idx >= 0) {
           const start = Math.max(0, idx - 30);
           const end = Math.min(text.length, idx + query.length + 30);
-          results.push({
-            cfi: item.cfiBase,
-            excerpt: text.substring(start, end),
-            href: item.href
-          });
+          results.push({ cfi: item.cfiBase, excerpt: text.substring(start, end), href: item.href });
         }
       } catch(e) {}
     }
-    container.innerHTML = results.length ? results.map((r, i) => `
-      <div class="search-result" onclick="state.epubRendition.display('${r.href}')">
-        <div style="font-size:11px;color:var(--text-secondary);margin-bottom:2px">${r.href}</div>
-        <div>${r.excerpt.replace(new RegExp(query, 'gi'), m => `<mark>${m}</mark>`)}</div>
-      </div>
-    `).join('') : '<div class="empty-state"><p>未找到结果</p></div>';
+    container.innerHTML = results.length ? results.map((r, i) => `<div class="search-result" onclick="state.epubRendition.display('${r.href}')"><div style="font-size:11px;color:var(--text-secondary);margin-bottom:2px">${r.href}</div><div>${r.excerpt.replace(new RegExp(query, 'gi'), m => `<mark>${m}</mark>`)}</div></div>`).join('') : '<div class="empty-state"><p>未找到结果</p></div>';
   } else {
-    // Text search
     const view = document.getElementById('text-view');
     const text = view.textContent || '';
     const results = [];
@@ -2063,11 +1933,7 @@ async function performSearch() {
       results.push({ pos: idx, excerpt: text.substring(start, end) });
       idx += query.length;
     }
-    container.innerHTML = results.length ? results.map((r, i) => `
-      <div class="search-result" onclick="scrollToSearchResult(${r.pos})">
-        <div>${r.excerpt.replace(new RegExp(query, 'gi'), m => `<mark>${m}</mark>`)}</div>
-      </div>
-    `).join('') : '<div class="empty-state"><p>未找到结果</p></div>';
+    container.innerHTML = results.length ? results.map((r, i) => `<div class="search-result" onclick="scrollToSearchResult(${r.pos})"><div>${r.excerpt.replace(new RegExp(query, 'gi'), m => `<mark>${m}</mark>`)}</div></div>`).join('') : '<div class="empty-state"><p>未找到结果</p></div>';
   }
 }
 
@@ -2080,7 +1946,6 @@ function scrollToSearchResult(pos) {
 // ===== Highlights =====
 function showHighlightMenu(cfiRange, contents) {
   const menu = document.getElementById('highlight-menu');
-  // Position near selection
   const selection = contents.document.getSelection();
   if (!selection || selection.isCollapsed) return;
   const range = selection.getRangeAt(0);
@@ -2103,14 +1968,10 @@ function addHighlight(color) {
   showToast('已添加高亮');
 }
 
-function removeHighlight() {
-  document.getElementById('highlight-menu').classList.remove('show');
-}
+function removeHighlight() { document.getElementById('highlight-menu').classList.remove('show'); }
 
 // ===== Settings =====
-function toggleSettings() {
-  document.getElementById('settings-panel').classList.toggle('open');
-}
+function toggleSettings() { document.getElementById('settings-panel').classList.toggle('open'); }
 
 function setTheme(theme) {
   state.theme = theme;
@@ -2164,11 +2025,8 @@ function changePageGap(delta) {
 
 // ===== Fullscreen =====
 function toggleFullscreen() {
-  if (!document.fullscreenElement) {
-    document.documentElement.requestFullscreen();
-  } else {
-    document.exitFullscreen();
-  }
+  if (!document.fullscreenElement) { document.documentElement.requestFullscreen(); }
+  else { document.exitFullscreen(); }
 }
 
 // ===== Progress =====
@@ -2178,18 +2036,11 @@ function updateProgress(pct) {
 
 // ===== Go Home =====
 function goHome() {
-  // Save scroll for local books before cleanup
   if (state.currentBook && state.currentBook._local && state.currentBook._filename) {
     const view = document.getElementById('text-view');
-    if (view) {
-      saveLocalProgress(state.currentBook._filename, {
-        progress: state.currentBook.progress,
-        scrollTop: view.scrollTop
-      });
-    }
+    if (view) { saveLocalProgress(state.currentBook._filename, { progress: state.currentBook.progress, scrollTop: view.scrollTop }); }
   }
 
-  // Cleanup
   if (state.epub) { state.epub.destroy(); state.epub = null; state.epubRendition = null; }
   state.pdfDoc = null;
   state.currentBook = null;
@@ -2208,25 +2059,19 @@ function showToast(msg) {
   const toast = document.getElementById('toast');
   toast.textContent = msg;
   toast.classList.add('show');
-  setTimeout(() => toast.classList.remove('show'), 2500);
+  setTimeout(() => toast.classList.remove('show'), 250);
 }
 
 // ===== Keyboard =====
 document.addEventListener('keydown', e => {
   if (!document.getElementById('reader').classList.contains('active')) return;
   if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-
   switch(e.key) {
     case 'ArrowLeft': case 'PageUp': e.preventDefault(); prevPage(); break;
     case 'ArrowRight': case 'PageDown': case ' ': e.preventDefault(); nextPage(); break;
-    case 'Escape':
-      document.getElementById('sidebar').classList.remove('open');
-      document.getElementById('settings-panel').classList.remove('open');
-      break;
+    case 'Escape': document.getElementById('sidebar').classList.remove('open'); document.getElementById('settings-panel').classList.remove('open'); break;
     case 'b': case 'B': toggleBookmark(); break;
-    case 'f': case 'F':
-      if (e.ctrlKey || e.metaKey) { e.preventDefault(); toggleSearch(); }
-      break;
+    case 'f': case 'F': if (e.ctrlKey || e.metaKey) { e.preventDefault(); toggleSearch(); } break;
     case 'F11': e.preventDefault(); toggleFullscreen(); break;
   }
 });
@@ -2243,13 +2088,11 @@ document.addEventListener('wheel', e => {
   if (!document.getElementById('reader').classList.contains('active')) return;
   if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
 
-  // Only handle page-turn modes: epub & pdf always; text/markdown/html only when content fits in one screen
   const fmt = state.format;
   const isPaginated = (fmt === 'epub' || fmt === 'pdf');
   const view = document.getElementById('text-view');
   const pdfView = document.getElementById('pdf-view');
 
-  // PDF: let internal scroll happen, only page-turn at boundaries
   if (pdfView && pdfView.style.display !== 'none') {
     const scrollTop = pdfView.scrollTop;
     const atTop = scrollTop <= 2;
@@ -2258,20 +2101,18 @@ document.addEventListener('wheel', e => {
   }
 
   if (!isPaginated) {
-    // For scrollable text: let normal scroll work, only page-turn when at boundaries
     if (view && view.style.display !== 'none') {
       const atTop = view.scrollTop <= 2;
       const atBottom = view.scrollTop + view.clientHeight >= view.scrollHeight - 2;
-      if ((e.deltaY < 0 && !atTop) || (e.deltaY > 0 && !atBottom)) return; // normal scroll
+      if ((e.deltaY < 0 && !atTop) || (e.deltaY > 0 && !atBottom)) return;
     }
   }
 
-  // Accumulate wheel delta with debounce for smooth trackpad support
   _wheelAccum += e.deltaY;
   clearTimeout(_wheelTimer);
   _wheelTimer = setTimeout(() => { _wheelAccum = 0; }, 200);
 
-  if (Math.abs(_wheelAccum) < 30) return; // threshold
+  if (Math.abs(_wheelAccum) < 30) return;
   e.preventDefault();
 
   if (_wheelAccum > 0) nextPage();
@@ -2282,13 +2123,9 @@ document.addEventListener('wheel', e => {
 // Close panels on outside click
 document.addEventListener('click', e => {
   const panel = document.getElementById('settings-panel');
-  if (panel.classList.contains('open') && !panel.contains(e.target) && !e.target.closest('[onclick*="toggleSettings"]')) {
-    panel.classList.remove('open');
-  }
+  if (panel.classList.contains('open') && !panel.contains(e.target) && !e.target.closest('[onclick*="toggleSettings"]')) { panel.classList.remove('open'); }
   const menu = document.getElementById('highlight-menu');
-  if (menu.classList.contains('show') && !menu.contains(e.target)) {
-    menu.classList.remove('show');
-  }
+  if (menu.classList.contains('show') && !menu.contains(e.target)) { menu.classList.remove('show'); }
 });
 
 // ===== Init =====
