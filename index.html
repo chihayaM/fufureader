@@ -1083,10 +1083,11 @@ async function loadLocalTxtBooks() {
       const resp = await fetch('txt/books.json');
       if (resp.ok) {
         const manifest = await resp.json();
-        if (Array.isArray(manifest)) {
-          for (const item of manifest) {
-            const file = item.file || item.name || item;
-            const title = item.title || file.replace(/\.[^.]+$/, '');
+        const items = Array.isArray(manifest) ? manifest : (manifest.books || manifest.data || []);
+        if (Array.isArray(items)) {
+          for (const item of items) {
+            const file = item.file || item.path || item.filename || item.name || item;
+            const title = item.title || file.replace(/\.[^.]+$/, '').replace(/ \(.*?\)/g, '').trim();
             discovered.push({ file: `txt/${file}`, title, author: item.author || '', ext: file.split('.').pop().toLowerCase() });
           }
         }
