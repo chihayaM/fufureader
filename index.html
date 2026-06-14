@@ -1077,8 +1077,10 @@ async function loadLocalTxtBooks() {
 
   const isFileProtocol = location.protocol === 'file:';
   const discovered = [];
+  const jsonMeta = {}; // filename -> { title, author } from books.json
 
   if (!isFileProtocol) {
+    // 1. 读 books.json 获取元数据
     try {
       const resp = await fetch('txt/books.json');
       if (resp.ok) {
@@ -1088,31 +1090,35 @@ async function loadLocalTxtBooks() {
           for (const item of items) {
             const file = item.file || item.path || item.filename || item.name || item;
             const title = item.title || file.replace(/\.[^.]+$/, '').replace(/ \(.*?\)/g, '').trim();
+            const filename = file.split('/').pop();
+            jsonMeta[filename] = { title, author: item.author || '' };
             discovered.push({ file: `txt/${file}`, title, author: item.author || '', ext: file.split('.').pop().toLowerCase() });
           }
         }
       }
     } catch {}
 
-    if (discovered.length === 0) {
-      try {
-        const resp = await fetch('txt/');
-        if (resp.ok) {
-          const html = await resp.text();
-          const linkRegex = /href="([^"?][^"]*\.(?:txt|md|markdown|log|csv|json|xml|html|htm|fb2|rtf|epub|pdf))"/gi;
-          let match;
-          while ((match = linkRegex.exec(html)) !== null) {
-            const href = match[1];
-            if (href === '../' || href === '..' || href.startsWith('?')) continue;
-            const filename = decodeURIComponent(href.replace(/^\//, ''));
-            if (filename.toLowerCase() === 'books.json' || filename.toLowerCase() === 'index.json') continue;
-            const ext = filename.split('.').pop().toLowerCase();
-            const title = filename.replace(/\.[^.]+$/, '');
-            discovered.push({ file: `txt/${filename}`, title, author: '', ext });
-          }
+    // 2. 扫描目录，补充 JSON 中没有的书
+    try {
+      const resp = await fetch('txt/');
+      if (resp.ok) {
+        const html = await resp.text();
+        const linkRegex = /href="([^"?][^"]*\.(?:txt|md|markdown|log|csv|json|xml|html|htm|fb2|rtf|epub|pdf))"/gi;
+        let match;
+        while ((match = linkRegex.exec(html)) !== null) {
+          const href = match[1];
+          if (href === '../' || href === '..' || href.startsWith('?')) continue;
+          const filename = decodeURIComponent(href.replace(/^\//, ''));
+          if (filename.toLowerCase() === 'books.json' || filename.toLowerCase() === 'index.json') continue;
+          // 跳过已在 discovered 中的文件
+          if (discovered.some(d => d.file.split('/').pop() === filename)) continue;
+          const ext = filename.split('.').pop().toLowerCase();
+          const meta = jsonMeta[filename];
+          const title = meta ? meta.title : filename.replace(/\.[^.]+$/, '').replace(/ \(.*?\)/g, '').trim();
+          discovered.push({ file: `txt/${filename}`, title, author: meta ? meta.author : '', ext });
         }
-      } catch {}
-    }
+      }
+    } catch {}
   }
 
   const filtered = discovered.filter(item => {
