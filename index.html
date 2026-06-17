@@ -485,10 +485,16 @@ input, button, select { font-family: inherit; }
   flex: 1;
   position: relative;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
 }
 #epub-view {
   width: 100%;
   height: 100%;
+  max-width: 860px;
+  margin: 0 auto;
+  flex: 1;
+  min-width: 0;
 }
 #epub-view iframe {
   border: none;
@@ -502,6 +508,10 @@ input, button, select { font-family: inherit; }
   align-items: center;
   padding: 20px;
   gap: 16px;
+  max-width: 860px;
+  margin: 0 auto;
+  flex: 1;
+  min-width: 0;
 }
 #pdf-view canvas {
   max-width: 100%;
@@ -518,6 +528,8 @@ input, button, select { font-family: inherit; }
   font-size: 16px;
   white-space: pre-wrap;
   word-wrap: break-word;
+  flex: 1;
+  min-width: 0;
 }
 #text-view.markdown {
   white-space: normal;
@@ -733,6 +745,7 @@ kbd {
   .toolbar .center { display: none; }
   .panel { width: 280px; right: 8px; }
   #text-view { padding: 20px; }
+  #epub-view { max-width: 100%; }
   .nav-arrow { display: none !important; }
 }
 
@@ -2068,7 +2081,24 @@ function nextPage() {
 }
 
 // ===== Sidebar =====
-function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); }
+function toggleSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  sidebar.classList.toggle('open');
+  // 侧边栏动画结束后重新调整 epub 尺寸，修复布局错位
+  const onTransitionEnd = (e) => {
+    if (e.propertyName !== 'width') return;
+    sidebar.removeEventListener('transitionend', onTransitionEnd);
+    if (state.epubRendition) {
+      state.epubRendition.resize();
+    }
+  };
+  sidebar.addEventListener('transitionend', onTransitionEnd);
+  // 兜底：如果 transition 未触发（如无动画环境），350ms 后强制 resize
+  setTimeout(() => {
+    sidebar.removeEventListener('transitionend', onTransitionEnd);
+    if (state.epubRendition) state.epubRendition.resize();
+  }, 350);
+}
 
 function switchSidebarTab(tab) {
   state.sidebarTab = tab;
@@ -2499,6 +2529,15 @@ document.getElementById('content-area').addEventListener('touchend', e => {
     else prevPage();
   }
 }, { passive: true });
+
+// ===== Window Resize =====
+let _resizeTimer = null;
+window.addEventListener('resize', () => {
+  clearTimeout(_resizeTimer);
+  _resizeTimer = setTimeout(() => {
+    if (state.epubRendition) state.epubRendition.resize();
+  }, 200);
+});
 
 // ===== Init =====
 renderBookshelf();
