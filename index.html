@@ -2493,7 +2493,6 @@ document.addEventListener('wheel', e => {
   _wheelAccum = 0;
 }, { passive: false });
 
-// Close panels on outside click
 document.addEventListener('click', e => {
   const panel = document.getElementById('settings-panel');
   if (panel.classList.contains('open') && !panel.contains(e.target) && !e.target.closest('[onclick*="toggleSettings"]')) { panel.classList.remove('open'); }
